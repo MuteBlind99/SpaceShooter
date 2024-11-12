@@ -128,12 +128,22 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="924-SpaceShooter.cpp" />
+    <ClCompile Include="asteroid.cc" />
+    <ClCompile Include="asteroid_manager.cpp" />
+    <ClCompile Include="enemy.cc" />
+    <ClCompile Include="enemy_manager.cc" />
+    <ClCompile Include="entity.cc" />
     <ClCompile Include="Game.cc" />
-    <ClCompile Include="Projectile.cpp" />
-    <ClCompile Include="projectile_manager.cpp" />
-    <ClCompile Include="SpaceShip.cpp" />
+    <ClCompile Include="Projectile.cc" />
+    <ClCompile Include="projectile_manager.cc" />
+    <ClCompile Include="SpaceShip.cc" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="asteroid.h" />
+    <ClInclude Include="asteroid_manager.h" />
+    <ClInclude Include="enemy.h" />
+    <ClInclude Include="enemy_manager.h" />
+    <ClInclude Include="entity.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="Projectile.h" />
     <ClInclude Include="projectile_manager.h" />

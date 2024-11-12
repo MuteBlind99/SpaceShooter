@@ -18,16 +18,31 @@
     <ClCompile Include="924-SpaceShooter.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Projectile.cpp">
+    <ClCompile Include="Projectile.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Game.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="projectile_manager.cpp">
+    <ClCompile Include="projectile_manager.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="SpaceShip.cpp">
+    <ClCompile Include="SpaceShip.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="asteroid_manager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="entity.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="asteroid.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="enemy.cc">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="enemy_manager.cc">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -42,6 +57,21 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="SpaceShip.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="asteroid_manager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="asteroid.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="entity.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="enemy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="enemy_manager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

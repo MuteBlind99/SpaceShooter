@@ -1,34 +1,28 @@
 #ifndef PROJECTILE_H
 #define PROJECTILE_H
 
-#include <SFML/Graphics/Drawable.hpp>
+
 #include <SFML/Graphics/Sprite.hpp>
 #include <SFML/Graphics/Texture.hpp>
-#include <SFML/Graphics/Transformable.hpp>
 
 
+#include "entity.h"
 
-class Projectile : public sf::Drawable, public sf::Transformable
+
+class Projectile : public Entity
 {
 
 private:
 	static sf::Texture texture_;
-	//sf::Sound sound;
-	sf::Vector2f direction_;
 	
-	sf::Sprite sprite_;
 	
-
-	bool is_dead_ = false;
+	static std::array<sf::Texture, 4> animation_;
+	float animation_time_ = 0.f;
+	int idx_texture_ = 0;
+	
 public:
-	Projectile();
-
-	void Move(float dt, const sf::Vector2u& window_size);
-
-	bool IsDead()const {return is_dead_;}
-protected:
-	void draw(sf::RenderTarget& target, sf::RenderStates states) const override;
-	
+	Projectile(sf::Vector2f direction);
+	void UpdateAnimation(const double dt);
 
 };
 
