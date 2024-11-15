@@ -34,6 +34,7 @@ void AsteroidManager::Refresh(float dt, const sf::Vector2u& window_size)
 	for (Asteroid& p : asteroids_)
 	{
 		p.Move(dt, window_size);
+		p.Rotate();
 	}
 }
 

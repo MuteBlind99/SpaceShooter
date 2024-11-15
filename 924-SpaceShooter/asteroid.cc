@@ -3,6 +3,7 @@
 #include <random>
 #include <SFML/Graphics/Texture.hpp>
 sf::Texture Asteroid::texture_;
+float Asteroid::rotation_fram_ = 0.02f;
 Asteroid::Asteroid()
 {
 	texture_.loadFromFile("assets\\PNG\\Meteors\\meteorBrown_big1.png");
@@ -19,4 +20,14 @@ Asteroid::Asteroid()
 	std::uniform_real_distribution<float>rnd_y(-50, 50);
 
 	direction_ = { rnd_x(engine), rnd_y(engine) };
+}
+
+void Asteroid::Rotate()
+{
+	rotation_ += rotation_fram_;
+		if (rotation_ >= 360)
+		{
+			rotation_ = 0;
+		}
+	sprite_.setRotation(rotation_);
 }
