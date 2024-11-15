@@ -136,16 +136,16 @@ void SpaceShip::draw(sf::RenderTarget& target, sf::RenderStates states) const
 {
 	states.transform *= getTransform();
 
-	sf::FloatRect ship_hitbox = HitBox();
-	sf::RectangleShape rectangle({ ship_hitbox.width, ship_hitbox.height });
+	//sf::FloatRect ship_hitbox = HitBox();
+	//sf::RectangleShape rectangle({ ship_hitbox.width, ship_hitbox.height });
 	//rectangle.setOrigin(ship_hitbox.getSize().x , ship_hitbox.getSize().y );
-	rectangle.setPosition(HitBox().left, HitBox().top);
+	//rectangle.setPosition(HitBox().left, HitBox().top);
 
-	rectangle.setFillColor(sf::Color(255, 255, 255, 0));
+	//rectangle.setFillColor(sf::Color(255, 255, 255, 0));
 
-	rectangle.setOutlineColor(sf::Color(0, 0, 255, 255));
-	rectangle.setOutlineThickness(1);
+	//rectangle.setOutlineColor(sf::Color(0, 0, 255, 255));
+	//rectangle.setOutlineThickness(1);
 
-	target.draw(rectangle);
+	//target.draw(rectangle);
 	target.draw(sprite_ship_, states);
 }
