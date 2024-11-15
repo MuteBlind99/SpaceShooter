@@ -16,7 +16,7 @@ SpaceShip::SpaceShip()
 	sprite_ship_.setOrigin(texture_ship_.getSize().x / 2, texture_ship_.getSize().y / 2);
 
 	//setRotation(90);
-	setScale(0.5, 0.5);
+	//setScale(0.5, 0.5);
 
 	buffer_hit.loadFromFile("assets\\Bonus\\sfx_shieldDown.ogg");
 	sound_hit.setBuffer(buffer_hit);

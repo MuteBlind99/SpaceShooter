@@ -16,12 +16,14 @@ Game::Game()
 	buffer.loadFromFile("assets\\Bonus\\laser5.wav");
 	// Associer le buffer à un objet Sound
 	sound.setBuffer(buffer);
+	sound.setVolume(50);
 	font.loadFromFile("assets\\minecraft\\Minecraft.ttf");
 	text_game_over.setFont(font);
 	text_hp.setFont(font);
 	text_score.setFont(font);
 	background_music.openFromFile("assets\\Zapper101_s-VGM-Fun-_93_-No-More-Heroes-2-Dose-of-Innocence.wav");
 	background_music.setLoop(true);
+	background_music.setVolume(35);
 	background_music.play();
 	game_over_music.openFromFile("assets\\Rick-Roll-Sound-Effect.wav");
 }

@@ -12,6 +12,7 @@ ProjectileManager::ProjectileManager()
 {
 	buffer_explosion_.loadFromFile("assets\\synthetic_explosion_1.flac");
 	sound_explosion_.setBuffer(buffer_explosion_);
+	sound_explosion_.setVolume(50);
 }
 
 void ProjectileManager::Spawn(sf::Vector2f spawn_position, sf::Vector2f direction)
