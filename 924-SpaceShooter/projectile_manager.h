@@ -2,7 +2,8 @@
 #define PROJECTILE_MANAGER_H
 
 #include <vector>
-#include <SFML/System/Clock.hpp>
+
+#include <SFML/Audio.hpp>
 
 #include "asteroid.h"
 #include "enemy.h"
@@ -13,7 +14,8 @@ class ProjectileManager : public sf::Drawable
 private:
 	std::vector<Projectile>projectiles_;
 	double cooldown_dt_ = 0;
-
+	sf::SoundBuffer laser;
+	sf::Sound sound_;
 public:
 	std::vector<Projectile>& GetEntities() { return projectiles_; }
 

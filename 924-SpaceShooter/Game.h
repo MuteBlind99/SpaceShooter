@@ -24,9 +24,17 @@ private:
 
 	sf::Clock clock_;
 
+	sf::Texture backgroundTexture;
+	
+	// Créer un sprite et lui associer la texture
+	sf::Sprite backgroundSprite;
+
+	sf::SoundBuffer buffer;
+	sf::Sound sound;
 public:
 	Game();
 	void Loop();
+	void SoundLaserEnd();
 };
 
 

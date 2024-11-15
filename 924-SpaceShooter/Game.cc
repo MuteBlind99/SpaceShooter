@@ -10,13 +10,20 @@ constexpr float kCooldown_limit = 0.15f;
 Game::Game()
 {
 	window_.create(sf::VideoMode(1280, 720), "Space Shooter");
+	backgroundTexture.loadFromFile("assets\\bg5.jpg");
+	backgroundSprite.setTexture(backgroundTexture);
+	// Charger le fichier audio dans un buffer
+	buffer.loadFromFile("assets\\Bonus\\laser5.wav");
+	// Associer le buffer à un objet Sound
+	sound.setBuffer(buffer);
+	
 }
 
 void Game::Loop()
 {
 	window_.setMouseCursorVisible(false);
 
-	double dt = 0.016f;
+	double dt = 0.036f;
 	double cooldown_shoot = 0;
 
 
@@ -30,6 +37,8 @@ void Game::Loop()
 			{
 				projectiles.Spawn(ship_.GetPosition(), { 1500,0 });
 				ship_.ShootConfirm();
+				// Jouer le son
+				sound.play();
 				cooldown_shoot = 0;
 			}
 
@@ -106,7 +115,8 @@ void Game::Loop()
 
 
 		window_.clear();
-
+		// Dessiner l'arrière-plan
+		window_.draw(backgroundSprite);
 		window_.draw(projectiles);
 		window_.draw(enemy_projectiles);
 		window_.draw(asteroid_);
@@ -120,5 +130,15 @@ void Game::Loop()
 		//std::cout << "dt ? : " << dt << std::endl;
 	}
 	window_.setMouseCursorVisible(true);
+}
+
+void Game::SoundLaserEnd()
+{
+	// Jouer le son
+	sound.play();
+	// Attendre que le son soit terminé (optionnel)
+	while (sound.getStatus() == sf::Sound::Playing) {
+		sf::sleep(sf::milliseconds(100)); // Eviter de consommer 100% du CPU
+	}
 }
 
