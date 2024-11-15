@@ -10,8 +10,7 @@ class Asteroid: public Entity
 {
 
 	static  sf::Texture texture_;
-	sf::SoundBuffer buffer_explosion_;
-	sf::Sound sound_explosion_;
+
 
 public:
 

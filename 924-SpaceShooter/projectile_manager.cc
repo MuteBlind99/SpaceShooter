@@ -8,6 +8,12 @@
 
 constexpr float kCooldown_limit_ = 0.15f;
 
+ProjectileManager::ProjectileManager()
+{
+	buffer_explosion_.loadFromFile("assets\\synthetic_explosion_1.flac");
+	sound_explosion_.setBuffer(buffer_explosion_);
+}
+
 void ProjectileManager::Spawn(sf::Vector2f spawn_position, sf::Vector2f direction)
 {
 	
@@ -40,7 +46,7 @@ void ProjectileManager::Refresh(float dt, const sf::Vector2u& window_size)
 	/*std::cout << "nb projectiles ? " <<  projectiles_.size() << '\n';*/
 }
 
-void ProjectileManager::CheckCollisions(std::vector<Asteroid>& asteroids)
+void ProjectileManager::CheckCollisions(std::vector<Asteroid>& asteroids, int& score)
 {
 	for (auto& p : projectiles_)
 	{
@@ -48,14 +54,16 @@ void ProjectileManager::CheckCollisions(std::vector<Asteroid>& asteroids)
 		{
 			if (p.IsDead()==false && a.IsDead()==false && p.Intersects(a.HitBox()))
 			{
+				sound_explosion_.play();
 				p.SetDeath();
 				a.SetDeath();
+				score += 50;
 			}
 		}
 	}
 }
 
-void ProjectileManager::CheckCollisions(std::vector<Enemy>& enemies)
+void ProjectileManager::CheckCollisions(std::vector<Enemy>& enemies, int& score)
 {
 	for (auto& p : projectiles_)
 	{
@@ -63,8 +71,10 @@ void ProjectileManager::CheckCollisions(std::vector<Enemy>& enemies)
 		{
 			if (p.IsDead() == false && e.IsDead() == false && p.Intersects(e.HitBox()))
 			{
+				sound_explosion_.play();
 				p.SetDeath();
 				e.Damage(1);
+				score += 100;
 			}
 		}
 	}

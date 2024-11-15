@@ -3,18 +3,12 @@
 #include <random>
 #include <SFML/Graphics/Texture.hpp>
 sf::Texture Asteroid::texture_;
-
 Asteroid::Asteroid()
 {
 	texture_.loadFromFile("assets\\PNG\\Meteors\\meteorBrown_big1.png");
 	sprite_.setTexture(texture_);
 	sprite_.setOrigin(texture_.getSize().x / 2, texture_.getSize().y / 2);
 
-	
-	buffer_explosion_.loadFromFile("assets\\synthetic_explosion_1.flac");
-	// Associer le buffer à un objet Sound
-	
-	sound_explosion_.setBuffer(buffer_explosion_);
 
 	//Seed with a real random value , if available
 	std::random_device rn_device;

@@ -17,6 +17,9 @@ SpaceShip::SpaceShip()
 
 	//setRotation(90);
 	setScale(0.5, 0.5);
+
+	buffer_hit.loadFromFile("assets\\Bonus\\sfx_shieldDown.ogg");
+	sound_hit.setBuffer(buffer_hit);
 }
 
 void SpaceShip::Move(sf::Vector2f direction, const double dt)
@@ -28,6 +31,27 @@ void SpaceShip::Move(sf::Vector2f direction, const double dt)
 	UpdateHitbox();
 }
 
+
+void SpaceShip::Hit(float& hit_cooldown)
+{
+	if (hit_cooldown > 0.1f && hit_cooldown < 0.12f)
+	{
+		sprite_ship_.setColor(sf::Color(255, 0, 0, 255));
+	}
+	else if (hit_cooldown > 0.2f)
+	{
+		sprite_ship_.setColor(sf::Color(255, 255, 255, 255));
+		hit_cooldown = 0;
+		num_hit_++;
+	}
+
+	if (num_hit_ >= 6)
+	{
+		num_hit_ = 0;
+		hit_ = false;
+	}
+}
+
 void SpaceShip::SetPositon(sf::Vector2u position)
 {
 	setPosition(sf::Vector2f(position));
@@ -35,7 +59,7 @@ void SpaceShip::SetPositon(sf::Vector2u position)
 
 void SpaceShip::UpdateHitbox()
 {
-	hit_box_ =sprite_ship_.getGlobalBounds();
+	hit_box_ = sprite_ship_.getGlobalBounds();
 	hit_box_.left += getPosition().x;
 	hit_box_.top += getPosition().y;
 }
@@ -59,18 +83,32 @@ void SpaceShip::CheckCollisions(std::vector<Projectile>& projectiles)
 		{
 			p.SetDeath(); // Death of the projectile --------------------------
 			// Starship damages ?????
+			hp_--;
+			hit_ = true;
+			sound_hit.play();
+			if (hp_ <= 0)
+			{
+				ship_is_dead = true;
+			}
 		}
 	}
 }
 
 void SpaceShip::CheckCollisions(std::vector<Enemy>& enemies)
 {
-	for(auto e:enemies)
+	for (auto e : enemies)
 	{
 		if (e.IsDead() == false && hit_box_.intersects(e.HitBox()))
 		{
 			e.Damage(5);
 			// Starship damages ?????
+			hp_--;
+			hit_ = true;
+			sound_hit.play();
+			if (hp_ <= 0)
+			{
+				ship_is_dead = true;
+			}
 		}
 	}
 }
@@ -83,6 +121,13 @@ void SpaceShip::CheckCollisions(std::vector<Asteroid>& asteroids)
 		{
 			a.SetDeath(); // Death of the asteroid --------------------------
 			// Starship damages ?????
+			hp_--;
+			hit_ = true;
+			sound_hit.play();
+			if (hp_ <= 0)
+			{
+				ship_is_dead = true;
+			}
 		}
 	}
 }

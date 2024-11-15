@@ -7,6 +7,7 @@
 sf::Texture Projectile::texture_;
 std::array<sf::Texture, 4> Projectile::animation_;
 
+
 Projectile::Projectile(sf::Vector2f direction)
 {
 	texture_.loadFromFile("assets\\PNG\\Lasers\\laserBlue12.png");
@@ -23,7 +24,6 @@ Projectile::Projectile(sf::Vector2f direction)
 	
 
 	direction_ = direction;
-
 }
 
 void Projectile::UpdateAnimation(const double dt)
