@@ -35,7 +35,7 @@ void SpaceShip::SetPositon(sf::Vector2u position)
 
 void SpaceShip::UpdateHitbox()
 {
-	hit_box_ = sprite_ship_.getGlobalBounds();
+	hit_box_ =sprite_ship_.getGlobalBounds();
 	hit_box_.left += getPosition().x;
 	hit_box_.top += getPosition().y;
 }
@@ -93,6 +93,7 @@ void SpaceShip::draw(sf::RenderTarget& target, sf::RenderStates states) const
 
 	sf::FloatRect ship_hitbox = HitBox();
 	sf::RectangleShape rectangle({ ship_hitbox.width, ship_hitbox.height });
+	//rectangle.setOrigin(ship_hitbox.getSize().x , ship_hitbox.getSize().y );
 	rectangle.setPosition(HitBox().left, HitBox().top);
 
 	rectangle.setFillColor(sf::Color(255, 255, 255, 0));

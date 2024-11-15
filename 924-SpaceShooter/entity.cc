@@ -48,15 +48,15 @@ void Entity::draw(sf::RenderTarget& target, sf::RenderStates states) const
 
 	states.transform *= getTransform();
 
-	//// Draw the hitbox ---------------------------------------------------
-	sf::RectangleShape rectangle({ hit_box_.width, hit_box_.height });
-	rectangle.setPosition(hit_box_.left, hit_box_.top);
+	////// Draw the hitbox ---------------------------------------------------
+	//sf::RectangleShape rectangle({ hit_box_.width, hit_box_.height });
+	//rectangle.setPosition(hit_box_.left, hit_box_.top);
 
-	rectangle.setFillColor(sf::Color(255, 255, 255, 0));
-	rectangle.setOutlineColor(sf::Color(0, 0, 255, 255));
-	rectangle.setOutlineThickness(1);
+	//rectangle.setFillColor(sf::Color(255, 255, 255, 0));
+	//rectangle.setOutlineColor(sf::Color(0, 0, 255, 255));
+	//rectangle.setOutlineThickness(1);
 
-	target.draw(rectangle);
+	//target.draw(rectangle);
 
 	target.draw(sprite_, states);
 }
